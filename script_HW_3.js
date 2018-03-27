@@ -1,6 +1,6 @@
 "use strict";
 
-class lamp {        
+class Lamp {        
    constructor(name) {
       this._type = 'ЛАМПА';
 	  this._state = false;
@@ -25,7 +25,7 @@ class lamp {
 }
 
 
-class tvSet {        
+class TvSet {        
    constructor(name) {
       this._type = 'ТЕЛЕВИЗОР';
 	  this._state = false;
@@ -50,7 +50,7 @@ class tvSet {
 }
 
 
-class heater {       
+class Heater {       
    constructor(name) {
       this._type = 'ОБОГРЕВАТЕЛЬ';
 	  this._state = false;
@@ -75,7 +75,7 @@ class heater {
 }
 
 
-class devStore {              
+class DevStore {              
 	constructor () {
 	this._i = 1; // they Id num
 	this._smartHouse = new Map () ;	
@@ -119,11 +119,11 @@ delById (devIdDel) { // by id
 }
 
 
-let ds = new devStore ();
+let ds = new DevStore ();
 
 
 
-class devCreate {   
+class DevCreate {   
 	constructor (ds) {
 		this._ds = ds ;	
 	}
@@ -139,15 +139,15 @@ render () {
 	let nameValue = nameDev.value;    
 
 	if (selValue === 'lamp') {
-			this._ds.add (new lamp (nameValue));
+			this._ds.add (new Lamp (nameValue));
 	};
 	
 	if (selValue === 'tvSet') {
-			this._ds.add (new tvSet (nameValue));
+			this._ds.add (new TvSet (nameValue));
 	};
 	
 	if (selValue === 'heater') {
-			this._ds.add (new heater (nameValue));
+			this._ds.add (new Heater (nameValue));
 	};
 		
 	shv.render ();// view	  
@@ -158,13 +158,13 @@ render () {
 	};
 
 	
-let dc = new devCreate (ds);
+let dc = new DevCreate (ds);
 dc.render ();
 
 
 
 
-class devDelete {   
+class DevDelete {   
 	constructor (ds) {
 	this._ds = ds ;	
 	}
@@ -192,12 +192,12 @@ render () {
 }
 	};
 
-let dv = new devDelete (ds);
+let dv = new DevDelete (ds);
 dv.render ();
 
 
 
-class shViwer {   //  смартхаус viewer
+class ShViwer {   //  смартхаус viewer
 	constructor (ds) {
 		this._ds = ds ;
 	}
@@ -256,7 +256,7 @@ render () {
 	};
 	
 	docDiv.style.backgroundColor = bdColor ;
-    docDiv.innerHTML = `${this._ds.type (i)} <br> ${this._ds.name (i)} <br> 'dev id = ' ${i} <br> ${this._ds.state(i)} <br> `;
+    docDiv.innerHTML = `${this._ds.type (i)} <br> ${this._ds.name (i)} <br> номер устр.= ${i} <br> ${this._ds.state(i)} <br> `;
     docDiv.appendChild(onBtn);
     docDiv.appendChild(offBtn);
 	document.body.appendChild(docDiv);
@@ -274,7 +274,7 @@ render () {
 };
 	};
 
-let shv = new shViwer (ds); 
+let shv = new ShViwer (ds); 
 
 
 
