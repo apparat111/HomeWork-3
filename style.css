@@ -1,0 +1,28 @@
+
+.pult {
+  width: 220px; /* Ширина слоя */ 
+  height: 200px;
+  float: left; /* Состыковка с соседним слоем */ 
+  padding: 10px; /* Поля вокруг текста */ 
+  border: 3px solid #800080;
+  color: #FF4500; /* Цвет текста*/ 
+  background-color: #FFFFE0;  /* Цвет фона левой колонки */ 
+   
+ }
+
+
+ 
+ .device {
+  width: 120px;
+  height: 100px;
+  /*float: left;*/
+  margin-left:10px;
+  padding: 10px;
+  border: 2px solid #00FF00;
+  color: #FF0000;
+  background-color: #F0E68C;
+  top: 10px; 
+ /*left: 70px; */
+  float: left;
+
+  }
