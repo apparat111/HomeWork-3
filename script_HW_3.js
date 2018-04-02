@@ -8,21 +8,21 @@ class Lamp {
     }
    on() {
       this._state = true;
-   }
+	}
    off() {
       this._state = false;
-   }
-   get state() {
+	}
+	get state() {
       return this._state;
-   }
-   get name() {
+	}
+	get name() {
       return this._name;
-   }
+	}
 	get type() {
       return this._type;
-   }
+	}
    
-}
+};
 
 
 class TvSet {        
@@ -30,24 +30,23 @@ class TvSet {
       this._type = 'ТЕЛЕВИЗОР';
 	  this._state = false;
       this._name = name;
-      
-   }
-   on() {
+    }
+	on() {
       this._state = true;
-   }
-   off() {
+	}
+	off() {
       this._state = false;
-   }
-   get state() {
+	}
+	get state() {
       return this._state;
-   }
-   get name() {
+	}
+	get name() {
       return this._name;
-   }
+	}
 	get type() {
       return this._type;
 	}
-}
+};
 
 
 class Heater {       
@@ -55,24 +54,23 @@ class Heater {
       this._type = 'ОБОГРЕВАТЕЛЬ';
 	  this._state = false;
       this._name = name;
-      
-   }
-   on() {
+    }
+	on() {
       this._state = true;
-   }
-   off() {
+	}
+	off() {
       this._state = false;
-   }
-   get state() {
+	}
+	get state() {
       return this._state;
-   }
-   get name() {
+	}
+	get name() {
       return this._name;
-   }
+	}
    get type() {
       return this._type;
 	}
-}
+};
 
 
 class DevStore {              
@@ -80,47 +78,42 @@ class DevStore {
 	this._i = 1; // they Id num
 	this._smartHouse = new Map () ;	
 	}
-add (device){
+	add (device){
 	this._smartHouse.set (this._i, device);
 	this._i++;
-}
-check (dev_id) {
+	}
+	check (dev_id) {
 	return this._smartHouse.has (Number(dev_id));
 	}
-getDevice (dev_id) {
+	getDevice (dev_id) {
 	return this._smartHouse.get(Number(dev_id));
 	}
-get devSize () {
+	get devSize () {
 	return this._smartHouse.size ;
 	}
-clear () {
+	clear () {
 	this._smartHouse.clear();
 	this._i = 1;
 	}
-state (dev_id) {
+	state (dev_id) {
 	return this._smartHouse.get(Number(dev_id)).state;
 	}
-stateOn (dev_id) {
+	stateOn (dev_id) {
 	this._smartHouse.get(Number(dev_id)).on ();
 	}
-
-stateOff (dev_id) {
+	stateOff (dev_id) {
 	this._smartHouse.get(Number(dev_id)).off ();
 	}
-name (dev_id) {
+	name (dev_id) {
 	return this._smartHouse.get(Number(dev_id)).name;
-}		
-type (dev_id) {
+	}		
+	type (dev_id) {
 	return this._smartHouse.get(Number(dev_id)).type;
-}
-delById (devIdDel) { // by id
+	}
+	delById (devIdDel) { // by id
 	this._smartHouse.delete(Number(devIdDel));
 	}  
-}
-
-
-let ds = new DevStore ();
-
+};
 
 
 class DevCreate {   
@@ -154,14 +147,8 @@ render () {
     	  
 	  });
 
-}
-	};
-
-	
-let dc = new DevCreate (ds);
-dc.render ();
-
-
+	}
+};
 
 
 class DevDelete {   
@@ -172,9 +159,8 @@ class DevDelete {
 render () {		
 	
 	document.getElementById("delete_all").onclick = (() => {
-
-    		this._ds.clear ();
-			shv.render ();
+	this._ds.clear ();
+	shv.render ();
 	});
 	
 	document.getElementById("delete_by_id").onclick = (() => {
@@ -189,15 +175,11 @@ render () {
 	});
 	
 	
-}
-	};
-
-let dv = new DevDelete (ds);
-dv.render ();
+	}
+};
 
 
-
-class ShViwer {   //  смартхаус viewer
+class ShViwer {   //   viewer
 	constructor (ds) {
 		this._ds = ds ;
 	}
@@ -223,60 +205,51 @@ render () {
 		if (this._ds.check (i) === true ) {
 
 		
-  let docDiv = document.createElement('div');
-  docDiv.className = 'device';
+	let docDiv = document.createElement('div');
+	docDiv.className = 'device';
     
-  let onBtn = document.createElement("button");
-      onBtn.type = "button";
-      onBtn.value = i;
-	  onBtn.innerHTML = "Вкл.";
-    
-      onBtn.addEventListener("click", () => {
-        		
+	let onBtn = document.createElement("button");
+		onBtn.type = "button";
+		onBtn.value = i;
+		onBtn.innerHTML = "Вкл.";
+		onBtn.addEventListener("click", () => {
 		this._ds.stateOn(onBtn.value);
 		shv.render ();
-	 });
+	});
       
-      let offBtn = document.createElement("button");
-      offBtn.type = "button";
-      offBtn.value = i;
-	  offBtn.innerHTML = "Выкл.";
-      
-      offBtn.addEventListener("click", () => {
-        
-	   this._ds.stateOff(offBtn.value);
+    let offBtn = document.createElement("button");
+		offBtn.type = "button";
+		offBtn.value = i;
+		offBtn.innerHTML = "Выкл.";
+		offBtn.addEventListener("click", () => {  
+		this._ds.stateOff(offBtn.value);
 		shv.render ();
-	  });
-    
-	
-	if (this._ds.state(i) === true ) {
+	});
+		if (this._ds.state(i) === true ) {
 		bdColor = 'white' ;
-	} else {
+		} else {
 		bdColor = '#F0E68C' ;
 	};
-	
 	docDiv.style.backgroundColor = bdColor ;
     docDiv.innerHTML = `${this._ds.type (i)} <br> ${this._ds.name (i)} <br> номер устр.= ${i} <br> ${this._ds.state(i)} <br> `;
     docDiv.appendChild(onBtn);
     docDiv.appendChild(offBtn);
 	document.body.appendChild(docDiv);
-
-	
 	m++;
 	}; 
 	console.log (this._ds.getDevice(i));
 	i++;
-	
 	};
-	
 	console.log (' === --- === ');
-
-};
 	};
+};
 
+let ds = new DevStore ();
+let dc = new DevCreate (ds);
+dc.render ();
+let dv = new DevDelete (ds);
+dv.render ();
 let shv = new ShViwer (ds); 
-
-
 
 
 
