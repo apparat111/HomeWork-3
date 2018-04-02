@@ -7,56 +7,56 @@
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 
-<body bgcolor=#DCDCDC text=black link=blue vlink=#00FF00 alink=red >
+<body bgcolor=#DCDCDC text=black link=blue vlink=#00FF00 alink=red>
 
-<font color=black face="Times Roman">
+    <font color=black face="Times Roman">
 
-  <p>ВАРИАНТ УМНОГО ДОМА - ДЗ №3</p>
-  
-<form>
- <div align="center" id="pult" class="pult" > ПУЛЬТ ДУ
-  	<p></p>
-	
-	<table>
-         <caption>ДОБАВИТЬ УСТРОЙСТВО</caption>
-         <tr>
-            <td> <select size="1"  name="devToCreate" ID="select_">
+        <p>ВАРИАНТ УМНОГО ДОМА - ДЗ №3</p>
+
+        <form>
+            <div align="center" id="pult" class="pult"> ПУЛЬТ ДУ
+                <p></p>
+
+                <table>
+                    <caption>ДОБАВИТЬ УСТРОЙСТВО</caption>
+                    <tr>
+                        <td> <select size="1" name="devToCreate" ID="select_">
 			<option value="tvSet">ТЕЛЕВИЗОР</option>
 			<option selected value="lamp">ЛАМПА</option>
 			<option value="heater">ОБОГРЕВАТЕЛЬ</option>
 				</select>
-			</td>
-			<td><input type="text" size="8" maxlength="10" ID="dev_name" name="dev_name" value=" ИМЯ "  /></td>
-			
-		  </tr>
-		 <td><input type="button" ID="dev_add" name="dev_add"  value="ДОБАВИТЬ"/></td>
-			<!--<input type="submit" value="Отправить" onclick="getValue()"> -->
-      </table>
-	
-	<p></p>
-		
-	<table>
-         <caption>УДАЛИТЬ УСТРОЙСТВО</caption>
-         <tr>
-            <td><input type="button" ID="delete_all" name="delete_all"  value="УДАЛИТЬ ВСЕ !"/></td>
-            
-         </tr>
-         <tr>
-            <td><input type="button" ID="delete_by_id" name="delete_by_id"  value="УДАЛИТЬ ПО НОМЕРУ"/></td>
-            <td><input type="text" size="5" maxlength="5" ID="delete_id" name="delete_id"  value="ном. устр."/></td>
-         </tr>
-		 
-      </table>
-	
-	
-	
-	<p></p>
-		
-  </div>
+                        </td>
+                        <td><input type="text" size="8" maxlength="10" ID="dev_name" name="dev_name" value=" ИМЯ " /></td>
 
-  </form>
-  <script src="script_HW_3.js"></script>
-  
+                    </tr>
+                    <td><input type="button" ID="dev_add" name="dev_add" value="ДОБАВИТЬ" /></td>
+                    <!--<input type="submit" value="Отправить" onclick="getValue()"> -->
+                </table>
+
+                <p></p>
+
+                <table>
+                    <caption>УДАЛИТЬ УСТРОЙСТВО</caption>
+                    <tr>
+                        <td><input type="button" ID="delete_all" name="delete_all" value="УДАЛИТЬ ВСЕ !" /></td>
+
+                    </tr>
+                    <tr>
+                        <td><input type="button" ID="delete_by_id" name="delete_by_id" value="УДАЛИТЬ ПО НОМЕРУ" /></td>
+                        <td><input type="text" size="5" maxlength="5" ID="delete_id" name="delete_id" value="ном. устр." /></td>
+                    </tr>
+
+                </table>
+
+
+
+                <p></p>
+
+            </div>
+
+        </form>
+        <script src="script_HW_3.js"></script>
+
 </body>
 
 </html>
